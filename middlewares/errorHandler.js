@@ -2,7 +2,7 @@
 
 function logErrors (err,req,res,next){
   console.log('log errors');
-  console.error(error);
+  console.error(err);
   next(err);
 }
 function errorHandler( err, req,res,next){

@@ -40,11 +40,12 @@ class ProductsService {
     return this.products;
   }
   async findOne(id){
-
+console.log('entre al finone')
         const product = this.products.find( item => item.id===id);
+          console.log(product)
         if(!product){
-
-           boom.notFound('Product not Found');
+          console.log('entre al error not found finone')
+          throw boom.notFound('Product not Found');
         }
         if(product.isblock){
           throw boom.conflict('Product is block');
@@ -54,6 +55,7 @@ class ProductsService {
 
   async update(id, changes){
     const index = this.products.findIndex(item => item.id===id);
+
     if (index === -1){
       throw boom.notFound('Product not Found');
     }
